@@ -1,4 +1,4 @@
-package gaur.himanshu.roomdatabaserelations.di
+package gupta.abhishek.relationshiproomdatabase.di
 
 import android.content.Context
 import dagger.Module
@@ -6,8 +6,8 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import gaur.himanshu.roomdatabaserelations.database.ExampleDao
-import gaur.himanshu.roomdatabaserelations.database.ExampleDatabase
+import gupta.abhishek.relationshiproomdatabase.database.ExampleDao
+import gupta.abhishek.relationshiproomdatabase.database.ExampleDatabase
 
 @InstallIn(SingletonComponent::class)
 @Module

@@ -1,4 +1,4 @@
-package gaur.himanshu.roomdatabaserelations.database.model
+package gupta.abhishek.relationshiproomdatabase.database.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -1,19 +1,25 @@
 package gupta.abhishek.relationshiproomdatabase
 
+import android.R.attr.name
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import dagger.hilt.android.AndroidEntryPoint
-import gaur.himanshu.roomdatabaserelations.viewmodel.MainViewModel
+import gupta.abhishek.relationshiproomdatabase.ui.viewmodel.MainViewModel
 import gupta.abhishek.relationshiproomdatabase.ui.theme.RelationshipRoomDatabaseTheme
 import kotlin.getValue
 
@@ -26,28 +32,29 @@ class MainActivity : ComponentActivity() {
             val viewModel: MainViewModel by viewModels()
             RelationshipRoomDatabaseTheme {
                 Scaffold( modifier = Modifier.fillMaxSize() ) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+
+                    MainScreen( modifier = Modifier.padding(innerPadding),viewModel = viewModel)
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
 
-@Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    RelationshipRoomDatabaseTheme {
-        Greeting("Android")
+fun MainScreen(modifier: Modifier , viewModel: MainViewModel) {
+    val list = viewModel.list.value
+    LazyColumn {
+        items(list) {
+            Column(
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(12.dp), verticalArrangement = Arrangement.Center
+            ) {
+               Text(text = "OwnerID : ${it.owner.name} ")
+                Text(text = "DogName : ${it.dog.name} ")
+            }
+        }
     }
+
 }
