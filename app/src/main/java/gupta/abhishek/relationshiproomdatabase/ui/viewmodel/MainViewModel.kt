@@ -6,6 +6,8 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 
 import dagger.hilt.android.lifecycle.HiltViewModel
+import gupta.abhishek.relationshiproomdatabase.common.ManyToManyRelation
+import gupta.abhishek.relationshiproomdatabase.common.OneToManyRelation
 import gupta.abhishek.relationshiproomdatabase.common.OneToOneRelation
 import gupta.abhishek.relationshiproomdatabase.database.ExampleDao
 import gupta.abhishek.relationshiproomdatabase.database.model.OwnerDog
@@ -26,8 +28,8 @@ class MainViewModel @Inject constructor(private val exampleDao: ExampleDao) : Vi
 
         viewModelScope.launch(Dispatchers.IO) {
 
-            async { exampleDao.insertOwner(OneToOneRelation.getOwnerList()) }.await()
-            async { exampleDao.insertDog(OneToOneRelation.getDogList()) }.await()
+            async { exampleDao.insertOwner(OneToManyRelation.getOwnerList()) }.await()
+            async { exampleDao.insertDog(OneToManyRelation.getDogList()) }.await()
             async { list.value = exampleDao.getOwnerDogList() }.await()
 
 

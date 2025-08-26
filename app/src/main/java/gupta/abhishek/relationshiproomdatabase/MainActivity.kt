@@ -1,6 +1,5 @@
 package gupta.abhishek.relationshiproomdatabase
 
-import android.R.attr.name
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -51,8 +50,14 @@ fun MainScreen(modifier: Modifier , viewModel: MainViewModel) {
                     .fillMaxWidth()
                     .padding(12.dp), verticalArrangement = Arrangement.Center
             ) {
-               Text(text = "OwnerID : ${it.owner.name} ")
-                Text(text = "DogName : ${it.dog.name} ")
+                Text(text = "OwnerName : ${it.owner.name} ")
+
+                it.dog?.forEach {
+                    Text(text = "DogName : ${it.name} -- DogId: ${it.dogId}")
+
+                }
+
+
             }
         }
     }

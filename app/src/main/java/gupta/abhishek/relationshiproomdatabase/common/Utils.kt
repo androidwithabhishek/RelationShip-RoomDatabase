@@ -86,7 +86,7 @@ object OneToManyRelation {
             ),
             Dog(
                 dogOwnerId = 5,
-                name = "Dog 6",
+                name = "Dog 7",
                 dogId = 6
             ),
             Dog(
@@ -94,6 +94,17 @@ object OneToManyRelation {
                 name = "Dog 7",
                 dogId = 7
             ),
+            Dog(
+                dogOwnerId = 1,
+                name = "Dog 8",
+                dogId = 8
+            ),
+            Dog(
+                dogOwnerId = 1,
+                name = "Dog 9",
+                dogId = 9
+            )
+
         )
     }
 
