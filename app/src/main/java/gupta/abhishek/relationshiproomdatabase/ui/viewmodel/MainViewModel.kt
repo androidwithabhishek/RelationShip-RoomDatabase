@@ -17,6 +17,9 @@ class MainViewModel @Inject constructor(private val exampleDao: ExampleDao) : Vi
     init {
         viewModelScope.launch(Dispatchers.IO) {
 
+
+
+
         }
     }
 
