@@ -12,16 +12,7 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(private val exampleDao: ExampleDao) : ViewModel() {
 
-    val list = mutableStateOf(emptyList<String>())
-
-    init {
-        viewModelScope.launch(Dispatchers.IO) {
-
-
-
-
-        }
-    }
+    
 
 
 }
